@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run Website') {
             steps {
-                bat 'echo "docker run -d -p 8080:80 my-first-site || true"'
+                bat 'echo "docker run -d -p 9090:80 my-first-site || true"'
             }
         }
     }
