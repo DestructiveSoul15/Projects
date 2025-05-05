@@ -17,9 +17,9 @@ pipeline {
         stage('Run Website') {
             steps {
                 bat '''
-                    docker stop my-first-site-container || exit 0
-                    docker rm my-first-site-container || exit 0
-                    docker run -d -p 9090:80 --name my-first-site-container my-first-site
+                    docker stop hardcore_wescoff || exit 0
+                    docker rm hardcore_wescoff || exit 0
+                    docker run -d -p 9090:80 --name hardcore_wescoff my-first-site
                 '''
             }
         }
