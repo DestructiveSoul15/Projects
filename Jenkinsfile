@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'echo "Docker build stage goes here..."'
+                bat 'echo "docker build -t my-first-site"'
             }
         }
 
         stage('Run Website') {
             steps {
-                bat 'echo "Run web server here..."'
+                bat 'echo "docker run -d -p 8080:80 my-first-site || true"'
             }
         }
     }
