@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/DestructiveSoul15/Projects.git'
+                git 'https://github.com/DestructiveSoul15/Projects.git'
             }
         }
 
@@ -16,7 +16,11 @@ pipeline {
 
         stage('Run Website') {
             steps {
-                bat 'echo "docker run -d -p 9090:80 my-first-site || true"'
+                bat '''
+                    docker stop my-first-site-container || exit 0
+                    docker rm my-first-site-container || exit 0
+                    docker run -d -p 9090:80 --name my-first-site-container my-first-site
+                '''
             }
         }
     }
